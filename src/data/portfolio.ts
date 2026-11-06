@@ -153,7 +153,8 @@ export const projects: Project[] = [
       { value: 'Render', label: 'cloud infrastructure' },
       { value: 'Cosine', label: 'similarity matrix' },
     ],
-    github: 'https://github.com/Anshukumar8529',
+    github: 'https://github.com/Anshukumar8529/house-price-prediction-recommendations',
+    live: 'https://real-estate-frontend-d8hn.onrender.com/',
     palette: { from: '#1a0d02', via: '#8a4a07', to: '#0a0806', accent: '#ffb547' },
     motif: 'flow',
   },
@@ -181,7 +182,7 @@ export const projects: Project[] = [
       { value: 'Scikit', label: 'learn pipeline' },
       { value: 'Metrics', label: 'precision & recall validated' },
     ],
-    github: 'https://github.com/Anshukumar8529',
+    github: 'https://github.com/Anshukumar8529/Predictive-Analysis-in-Diabetes',
     palette: { from: '#2a0610', via: '#7a0f24', to: '#0b0710', accent: '#ff3d5a' },
     motif: 'shield',
   },
@@ -209,7 +210,7 @@ export const projects: Project[] = [
       { value: 'Power Query', label: 'ETL & data transformation' },
       { value: 'Trends', label: 'program performance surfaced' },
     ],
-    github: 'https://github.com/Anshukumar8529',
+    github: 'https://github.com/Anshukumar8529/poshan-tracker-dashboard',
     palette: { from: '#021a12', via: '#066347', to: '#030d09', accent: '#34d399' },
     motif: 'flow',
   },
@@ -237,7 +238,7 @@ export const projects: Project[] = [
       { value: 'Swing', label: 'desktop GUI' },
       { value: 'ATM', label: 'simulated operations' },
     ],
-    github: 'https://github.com/Anshukumar8529',
+    github: 'https://github.com/Anshukumar8529/Bank-managment-system',
     palette: { from: '#1b092a', via: '#581882', to: '#0b0412', accent: '#c084fc' },
     motif: 'tenants',
   },
@@ -265,11 +266,11 @@ export const achievements: Achievement[] = [
 export type Certification = { issuer: string; name: string; link: string };
 
 export const certifications: Certification[] = [
-  { issuer: 'Oracle', name: 'Data Platform 2025 Certified Foundations Associate', link: 'https://github.com/Anshukumar8529' },
-  { issuer: 'Google', name: 'The Bits and Bytes of Computer Networking', link: 'https://github.com/Anshukumar8529' },
-  { issuer: 'LPU', name: 'Java and MySQL: Application Development', link: 'https://github.com/Anshukumar8529' },
-  { issuer: 'Fynd', name: 'Hacktimus – Hackathon Participation Certificate', link: 'https://github.com/Anshukumar8529' },
-  { issuer: 'CSE Pathshala', name: 'Unrevealing Basic Python towards ML/AI', link: 'https://github.com/Anshukumar8529' },
+  { issuer: 'Oracle', name: 'Data Platform 2025 Certified Foundations Associate', link: 'https://drive.google.com/file/d/1geBEdPZWRmBxNLy32W0u23p8fOQgZD8Y/view?usp=drive_link' },
+  { issuer: 'Google', name: 'The Bits and Bytes of Computer Networking', link: 'https://drive.google.com/file/d/1VFUzGhP_SJfBNCYqhrkiX9jG0oMFB1Ji/view?usp=drive_link' },
+  { issuer: 'LPU', name: 'Java and MySQL: Application Development', link: 'https://drive.google.com/file/d/1812isf5Xmsjfdlv7DHma7k4zK4vqLvyy/view?usp=drive_link' },
+  { issuer: 'Fynd', name: 'Hacktimus – Hackathon Participation Certificate', link: 'https://drive.google.com/file/d/11u_wgxrvceR3AJ07b1xBInOy9P0l4rCz/view?usp=drive_link' },
+  { issuer: 'CSE Pathshala', name: 'Unrevealing Basic Python towards ML/AI', link: 'https://drive.google.com/drive/folders/1W_4gSvebZovRq8wVC551BNyoacHqgJbo' },
 ];
 
 export type Skill = { name: string; mono: string; note?: string };

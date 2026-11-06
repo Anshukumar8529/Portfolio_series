@@ -91,19 +91,34 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
+            {(project.live || project.github) && (
               <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </Magnetic>
+                {project.live && (
+                  <Magnetic>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-crimson px-6 text-[15px] font-bold text-white shadow-[0_0_30px_rgba(229,19,43,0.45)] transition hover:bg-crimson-2"
+                    >
+                      <span>▶</span> Live Demo ↗
+                    </a>
+                  </Magnetic>
+                )}
+                {project.github && (
+                  <Magnetic>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                    >
+                      GitHub Repository ↗
+                    </a>
+                  </Magnetic>
+                )}
               </motion.div>
             )}
 
