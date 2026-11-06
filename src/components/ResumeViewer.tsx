@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { achievements, certifications, education, experience, profile, projects, skillCategories } from '../data/portfolio';
 import { EASE, Magnetic, SectionHeading } from './fx';
 
-/** THE FULL STORY — a designed resume preview plus view / download actions. */
+/** THE FULL STORY — a designed resume preview plus view / download actions for both General and Specialized CVs. */
 export default function ResumeSection({ onView }: { onView: () => void }) {
   return (
     <>
       <SectionHeading kicker="The screenplay" title="The Full Story" />
-      <div className="gutter grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-14">
+      <div className="gutter grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
         <motion.div
           initial={{ opacity: 0, y: 60, rotateX: 10 }}
           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -22,8 +22,9 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="font-serif text-3xl italic leading-tight text-bone">Every episode, on one page.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Education, training, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
+            Education, training, {projects.length} Originals, hackathon achievements, and {certifications.length} verified credentials — view it here or take a copy with you.
           </p>
+          
           <div className="mt-6 flex flex-col gap-3">
             <Magnetic className="w-full">
               <button
@@ -32,20 +33,31 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
                 onClick={onView}
                 className="flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
               >
-                ▶ View Resume
+                ▶ View Screenplay Resume
               </button>
             </Magnetic>
             <Magnetic className="w-full">
               <a
-                href={profile.resumePdf}
-                download="Sushmita_Dasari_Resume.pdf"
+                href={profile.generalResumePdf}
+                download="Anshu_Kumar_General_CV.pdf"
                 data-cursor="link"
-                className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
+                className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[14px] font-semibold text-bone transition hover:bg-white/15 hover:border-crimson-2"
               >
-                ⤓ Download Resume
+                ⤓ Download General CV (PDF)
+              </a>
+            </Magnetic>
+            <Magnetic className="w-full">
+              <a
+                href={profile.specializedResumePdf}
+                download="Anshu_Kumar_Specialized_CV.pdf"
+                data-cursor="link"
+                className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[14px] font-semibold text-bone transition hover:bg-white/15 hover:border-[#38bdf8]"
+              >
+                ⤓ Download Specialized CV (PDF)
               </a>
             </Magnetic>
           </div>
+
           <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
               { v: education[0].score.replace('CGPA ', ''), k: 'CGPA' },
@@ -95,11 +107,13 @@ export function ResumeSheet() {
         <div>
           <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">STARRING</p>
           <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
+          <p className="mt-1 text-xs font-semibold text-mist">{profile.role}</p>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
           <a href={`mailto:${profile.email}`} className="block hover:text-bone">
             {profile.email}
           </a>
+          <span className="block text-smoke">{profile.phone}</span>
           <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-bone">
             LinkedIn ↗
           </a>
@@ -127,7 +141,7 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Work Experience</H>
+          <H>Experience & Training</H>
           {experience.map((x) => (
             <div key={x.company}>
               <div className="flex flex-wrap justify-between gap-x-3">
@@ -147,7 +161,7 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Projects</H>
+          <H>Featured Originals</H>
           {projects.map((p) => (
             <div key={p.id} className="mb-3">
               <div className="flex flex-wrap justify-between gap-x-3">
@@ -160,7 +174,7 @@ export function ResumeSheet() {
         </div>
 
         <div>
-          <H>Skills</H>
+          <H>Skills Universe</H>
           <div className="space-y-2">
             {skillCategories.map((c) => (
               <p key={c.id} className="text-xs leading-relaxed text-mist">
@@ -183,11 +197,14 @@ export function ResumeSheet() {
           </ul>
 
           <H>Certifications</H>
-          <p className="text-xs leading-relaxed text-mist">
-            {Array.from(new Set(certifications.map((c) => c.issuer)))
-              .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
-              .join(' · ')}
-          </p>
+          <ul className="space-y-1.5">
+            {certifications.map((c) => (
+              <li key={c.name} className="text-xs leading-relaxed text-mist">
+                <span className="font-semibold text-bone">{c.issuer}: </span>
+                {c.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </article>
